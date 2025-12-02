@@ -3,6 +3,7 @@ import Image from "next/image";
 import Search from "./components/Search";
 import axios from "axios";
 import { useState } from "react";
+import {BsSearch} from 'react-icons/bs'
 
 
 export default function Home() {
@@ -20,21 +21,30 @@ export default function Home() {
   //   })
   // }
 
-  const handleOnSearchChange = (searchData) => {
-    console.log(searchData);
-  }
+  // const handleOnSearchChange = (searchData) => {
+  //   console.log(searchData);
+  // }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
-      
-      <Search/>
-      {/* <button onClick={fetchWeather}>Refresh</button> */}
       {/* <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
       <Search/>
       </main> */}
+      <div className="absolute top-0 left-0 right-0 bottom-0 z-1 bg-black/50" />
+      {/* Background Image */}
+      <Image src="/golden-autumn.avif" layout="fill" alt="bg-wallpaper" />
+      {/* <Search className="relative flex justify-between max-w-500px" /> */}
 
-      <Image src='/golden-autumn.avif' layout="fill" className="object-cover" alt="bg-wallpaper"/>
-
+      {/* Search City */}
+      <div className="relative flex justify-between items-center max-w-[500px] w-full margin-auto pt-4 ">
+        <form>
+          <div>
+            <input type="text" placeholder="Type City to Search"></input>
+          </div>
+          <button><BsSearch/></button>
+        </form>
+      </div>
+      {/* <button onClick={fetchWeather}>Refresh</button> */}
     </div>
   );
 }
