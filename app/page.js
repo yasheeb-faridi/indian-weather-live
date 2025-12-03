@@ -11,7 +11,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false); // Have to find out?
   const [error, setError] = useState(null);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`; /// to put the weather API url
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`; /// to put the weather API url
 
   const fetchWeather = (e) => {
     e.preventDefault(); // this will prevent the page to reload
