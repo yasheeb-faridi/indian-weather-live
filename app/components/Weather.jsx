@@ -1,15 +1,15 @@
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-const Weather = ({data}) => {
-    console.log(data)   // to ensure that my data is passed down correctly to the weather component
-    let kTemp = data.main.temp
-    const cTemp = Math.round(kTemp - 273.15);
-    const fTemp = (cTemp * 9/5) + 32;
-    // console.log(kTemp)
-    // console.log(cTemp)
-    // console.log(fTemp)
-    
+const Weather = ({ data }) => {
+  console.log(data); // to ensure that my data is passed down correctly to the weather component
+  let kTemp = data.main.temp;
+  const cTemp = Math.round(kTemp - 273.15);
+  const fTemp = (cTemp * 9) / 5 + 32;
+  // console.log(kTemp)
+  // console.log(cTemp)
+  // console.log(fTemp)
+
   return (
     <div className="relative p-4 pt-12 h-40 z-10">
       <div className="relative flex flex-col items-center">
@@ -30,7 +30,7 @@ const Weather = ({data}) => {
           height={100}
         />
         <p className="text-2xl">{data.weather[0].main}</p>
-        <p className='text-1.5xl'>{data.weather[0].description}</p>
+        <p className="text-1.5xl">{data.weather[0].description}</p>
       </div>
 
       {/* Bottom widget */}
@@ -66,27 +66,21 @@ const Weather = ({data}) => {
         </p>
         <div className="flex justify-between text-center">
           <div>
-            <p className="font-bold text-2xl text-white/85">
-              Sunrise Timing
-            </p>
+            <p className="font-bold text-2xl text-white/85">Sunrise Timing</p>
             <p className="text-xl text-white/85 ">Sunrise</p>
           </div>
           <div>
-            <p className="font-bold text-2xl text-white/85">
-              Sunset Timing
-            </p>
+            <p className="font-bold text-2xl text-white/85">Sunset Timing</p>
             <p className="text-xl text-white/85 ">Sunset</p>
           </div>
           <div>
-            <p className="font-bold text-2xl text-white/85">
-              KMPH
-            </p>
+            <p className="font-bold text-2xl text-white/85">KMPH</p>
             <p className="text-xl text-white/85">Winds</p>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default Weather
+export default Weather;
