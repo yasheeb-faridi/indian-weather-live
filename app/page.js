@@ -29,8 +29,18 @@ export default function Home() {
     <div className=" bg-zinc-50 py-32 px-16 font-sans">
       <div className="absolute top-0 left-0 right-0 bottom-0 z-1" />
       {/* Background Image */}
-      <Image src="/thunder-storm.jpg" layout="fill" alt="bg-wallpaper" />
+      <Image
+        src="/thunder-storm.jpg"
+        fill
+        style={{ objectFit: "cover" }}
+        alt="bg-wallpaper"
+      />
 
+      <div>
+        <h1 className=" relative flex text-center justify-center md:text-3xl text-gray-100 ">
+          Live Indian Weather Status
+        </h1>
+      </div>
       {/* Search City */}
       <div className="relative flex justify-between items-center max-w-lg w-full m-auto pt-4 px-4 z-10">
         <form
@@ -40,8 +50,8 @@ export default function Home() {
           <input
             onChange={(e) => setCity(e.target.value)}
             type="text"
-            placeholder="Type City to Search"
-            className="bg-transparent border-none focus:outline-none text-2xl"
+            placeholder="Type Indian City to Search"
+            className="bg-transparent border-none focus:outline-none text-sm md:text-2xl"
           ></input>
 
           <button onClick={fetchWeather}>
