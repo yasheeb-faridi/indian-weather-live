@@ -72,8 +72,8 @@ const Weather = ({ data }) => {
           height={100}
           className="border border-gray-50 rounded-3xl"
         />
-        <p className="text-2xl">{data.weather[0].main}</p>
-        <p className="text-1.5xl">{data.weather[0].description}</p>
+        <p className="text-2xl text-white">{data.weather[0].main}</p>
+        <p className="text-1.5xl text-white">Description: {data.weather[0].description}</p>
       </div>
 
       {/* Bottom widget */}

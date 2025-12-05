@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import Weather from "./components/Weather";
+// import Footer from "./components/Footer";
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -38,7 +39,7 @@ export default function Home() {
 
       <div>
         <h1 className=" relative flex text-center justify-center md:text-3xl text-gray-100 ">
-          Live Indian Weather Status
+          Live Weather Conditions 
         </h1>
       </div>
       {/* Search City */}
@@ -50,7 +51,7 @@ export default function Home() {
           <input
             onChange={(e) => setCity(e.target.value)}
             type="text"
-            placeholder="Type Indian City to Search"
+            placeholder="Type any Indian City to Search"
             className="bg-transparent border-none focus:outline-none text-sm md:text-2xl"
           ></input>
 
