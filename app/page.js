@@ -71,7 +71,7 @@ export default function Home() {
         </form>
       </div>
       {/* Weather */}
-      <div>City Time: </div>
+      {/* <div>City Time: </div> */}
       {weather.main && <Weather data={weather} />}
     </div>
   );
