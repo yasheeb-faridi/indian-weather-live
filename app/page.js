@@ -4,19 +4,26 @@ import axios from "axios";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import Weather from "./components/Weather";
-// import Footer from "./components/Footer";
 
 export default function Home() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({}); // Weather Data in an array
+  // const [citytime , setCitytime] = useState("");
   const [loading, setLoading] = useState(false); // Have to find out?
   const [error, setError] = useState(null);
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`; /// to put the weather API url
 
+  // const t_url = `https://timezone.abstractapi.com/v1/current_time/?api_key=${process.env.NEXT_PUBLIC_ABSTRACT_API_KEY}&location=${city}`;
   const fetchWeather = (e) => {
     e.preventDefault(); // this will prevent the page to reload
     setLoading(true);
+
+    // const axios = require("axios");
+    // axios.get(t_url).then((response) => {
+    //   setCitytime(response.data.datetime);
+    // })
+    //   .catch((error) => {});
     axios.get(url).then((response) => {
       setWeather(response.data);
     });
@@ -27,11 +34,11 @@ export default function Home() {
   if (error) return <div className="text-red-400 p-4">{error}</div>;
 
   return (
-    <div className="h-screen w-full relative bg-zinc-50 py-32 px-16 font-sans">
+    <div className="h-screen w-full bg-zinc-50 py-32 px-16 font-sans">
       <div className="absolute top-0 left-0 right-0 bottom-0 z-1" />
       {/* Background Image */}
       <Image
-        src="/snow-capped-mountains.jpg"
+        src="/sunrise-farm.jpg"
         fill
         style={{ objectFit: "cover" }}
         alt="bg-wallpaper"
@@ -64,6 +71,7 @@ export default function Home() {
         </form>
       </div>
       {/* Weather */}
+      <div>City Time: </div>
       {weather.main && <Weather data={weather} />}
     </div>
   );

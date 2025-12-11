@@ -20,7 +20,7 @@ const Weather = ({ data }) => {
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
-  };
+  }; 
 
   function getLocalDate(cityTime) {
     let localTime = new Date(cityTime * 1000);
