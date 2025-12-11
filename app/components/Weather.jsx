@@ -9,7 +9,7 @@ const Weather = ({ data }) => {
   let cityTime = data.dt; // unix time in the API response field
   // let timezoneOffset = data.timezone;
   let citySunRise = data.sys.sunrise;
-  let citySunSet = data.sys.sunset; 
+  let citySunSet = data.sys.sunset;
   const DateOptions = {
     month: "long",
     day: "numeric",
@@ -22,24 +22,24 @@ const Weather = ({ data }) => {
     hour12: true,
   };
 
-  function getLocalDate(cityTime){
+  function getLocalDate(cityTime) {
     let localTime = new Date(cityTime * 1000);
     return localTime.toLocaleDateString("en-GB", DateOptions);
   }
 
-  function getLocalTime(cityTime){
-    let localTime = new Date((cityTime) * 1000);
+  function getLocalTime(cityTime) {
+    let localTime = new Date(cityTime * 1000);
     // return localTime.toLocaleString("en-US", options);
     return localTime.toTimeString();
   }
-  function getSunriseTime(citySunRise){
-    let sunriseTime = new Date((citySunRise) * 1000);
+  function getSunriseTime(citySunRise) {
+    let sunriseTime = new Date(citySunRise * 1000);
     return sunriseTime.toLocaleTimeString(TimeOptions);
   }
-    function getSunsetTime(citySunSet) {
-      let sunsetTime = new Date(citySunSet * 1000);
-      return sunsetTime.toLocaleTimeString(TimeOptions);
-    }
+  function getSunsetTime(citySunSet) {
+    let sunsetTime = new Date(citySunSet * 1000);
+    return sunsetTime.toLocaleTimeString(TimeOptions);
+  }
   // console.log(kTemp)
   // console.log(cTemp)
   // console.log(fTemp)
@@ -70,10 +70,13 @@ const Weather = ({ data }) => {
           alt="weather-icon"
           width={100}
           height={100}
+          unoptimized
           className="border border-gray-50 rounded-3xl"
         />
         <p className="text-2xl text-white">{data.weather[0].main}</p>
-        <p className="text-1.5xl text-white">Description: {data.weather[0].description}</p>
+        <p className="text-1.5xl text-white">
+          Description: {data.weather[0].description}
+        </p>
       </div>
 
       {/* Bottom widget */}
@@ -109,11 +112,16 @@ const Weather = ({ data }) => {
         </p>
         <div className="flex flex-col md:flex-row justify-between text-center">
           <div>
-            <p className="font-bold text-2xl text-white/85"> {getSunriseTime(citySunRise)}</p>
+            <p className="font-bold text-2xl text-white/85">
+              {" "}
+              {getSunriseTime(citySunRise)}
+            </p>
             <p className="text-xl text-white/85 ">Sunrise</p>
           </div>
           <div>
-            <p className="font-bold text-2xl text-white/85">{getSunsetTime(citySunSet)} </p>
+            <p className="font-bold text-2xl text-white/85">
+              {getSunsetTime(citySunSet)}{" "}
+            </p>
             <p className="text-xl text-white/85 ">Sunset</p>
           </div>
         </div>

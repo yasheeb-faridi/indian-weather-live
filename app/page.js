@@ -27,11 +27,11 @@ export default function Home() {
   if (error) return <div className="text-red-400 p-4">{error}</div>;
 
   return (
-    <div className=" bg-zinc-50 py-32 px-16 font-sans">
+    <div className="h-screen w-full relative bg-zinc-50 py-32 px-16 font-sans">
       <div className="absolute top-0 left-0 right-0 bottom-0 z-1" />
       {/* Background Image */}
       <Image
-        src="/thunder-storm.jpg"
+        src="/snow-capped-mountains.jpg"
         fill
         style={{ objectFit: "cover" }}
         alt="bg-wallpaper"
@@ -39,7 +39,10 @@ export default function Home() {
 
       <div>
         <h1 className=" relative flex text-center justify-center md:text-3xl text-gray-100 ">
-          Live Weather Conditions 
+          Live Weather Conditions
+        </h1>
+        <h1 className=" relative flex text-center justify-center md:text-3xl text-gray-100 ">
+          For any Indian City
         </h1>
       </div>
       {/* Search City */}
@@ -51,8 +54,8 @@ export default function Home() {
           <input
             onChange={(e) => setCity(e.target.value)}
             type="text"
-            placeholder="Type any Indian City to Search"
-            className="bg-transparent border-none focus:outline-none text-sm md:text-2xl"
+            placeholder="Type City to Search"
+            className="bg-transparent border-none focus:outline-none text-sm md:text-2xl text-white"
           ></input>
 
           <button onClick={fetchWeather}>
